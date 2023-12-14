@@ -1,6 +1,15 @@
 # *** Imports the blueprint class and render_template
 from flask import ( Blueprint, render_template )
 
+# Imports json since out data is in a JSON file format and not in a database
+import json
+
+# * Built in functions open() and json.load()
+# Passes pets.json file as an argument in the open() function to "open the file".
+# Entire function then needs to be passed inside json.load() function as an argument to be readable
+# * open() "opens files" and json.load() "decodes JSON data"
+pets = json.load(open('pets.json'))
+print(pets)
 
 # * Creates an instance of the blueprint class
 bp = Blueprint(
@@ -16,4 +25,7 @@ bp = Blueprint(
 @bp.route('/')
 # Defines a method for the route named index that returns a string
 def index():
-    return render_template ('index.html')
+    return render_template (
+        'index.html',
+        pets=pets,
+        )
