@@ -8,12 +8,16 @@ def create_app():
 
     # * Basic index route that goes to '/' and returns 'Hello...'
     @app.route('/')
-    def hello():
+    def index():
         return "Hello, PetFax! 🐶"
 
-    #Imports the pet file
+    #Tegisters the pet blueprint
     from . import pet
     # Calls the register_blueprint method on the app instance and passes the pet blueprint into the method
     app.register_blueprint(pet.bp)
+
+     # Registers the fact blueprint 
+    from . import fact
+    app.register_blueprint(fact.bp)
 
     return app
