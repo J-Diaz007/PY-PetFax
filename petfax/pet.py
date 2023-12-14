@@ -1,5 +1,6 @@
-# *** Imports the blueprint class
-from flask import Blueprint
+# *** Imports the blueprint class and render_template
+from flask import ( Blueprint, render_template )
+
 
 # * Creates an instance of the blueprint class
 bp = Blueprint(
@@ -15,4 +16,4 @@ bp = Blueprint(
 @bp.route('/')
 # Defines a method for the route named index that returns a string
 def index():
-    return 'You have reached the pets index =D'
+    return render_template ('index.html')
