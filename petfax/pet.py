@@ -1,7 +1,7 @@
 # *** Imports the blueprint class and render_template
 from flask import ( Blueprint, render_template )
 
-# Imports json since out data is in a JSON file format and not in a database
+# Imports json since our data is in a JSON file format and not in a database
 import json
 
 # * Built in functions open() and json.load()

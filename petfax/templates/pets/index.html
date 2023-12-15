@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetFax</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Pets</title>
 </head>
 <body>
     <main class="container">
@@ -12,10 +13,12 @@
             {% for pet in pets %}
                 <div class="pet">
                     <h2>{{ pet.pet_name }}</h2>
-                    <img src="{{ url_for('static', filename='assets/') }}{{pet.pet_photo}}"/>
+                    <img src="{{ pet.pet_photo}}" alt="Photo of Pet"/>
+                    <a href="/pets/{{ pet.pet_id }}">See more...</a>
                 </div>
             {% endfor %}
         </section>
+        <a href="/facts/new">Submit a Fun Fact Here.</a>
     </main>    
 </body>
 </html>
